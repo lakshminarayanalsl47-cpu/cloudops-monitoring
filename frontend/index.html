@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudOps Monitor</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>☁ CloudOps</h2>
+
+        <ul>
+            <li>Dashboard</li>
+            <li>Servers</li>
+            <li>AWS Resources</li>
+            <li>Monitoring</li>
+            <li>Alerts</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+
+        <div class="header">
+            <h1>Infrastructure Dashboard</h1>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Servers</h3>
+                <h2 id="totalServers">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Running</h3>
+                <h2 id="runningServers">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>AWS Instances</h3>
+                <h2 id="awsInstances">0</h2>
+            </div>
+
+            <div class="card alert-card">
+                <h3>Alerts</h3>
+                <h2 id="alerts">0</h2>
+            </div>
+
+        </div>
+<div class="architecture">
+
+    <h2>3-Tier Architecture</h2>
+
+    <div class="tier-container">
+
+        <div class="tier">Users</div>
+
+        <div class="arrow">➡</div>
+
+        <div class="tier">Application Load Balancer</div>
+
+        <div class="arrow">➡</div>
+
+        <div class="tier">EC2 Web Server</div>
+
+        <div class="arrow">➡</div>
+
+        <div class="tier">Amazon RDS</div>
+
+    </div>
+
+</div>
+        <div class="chart-container">
+            <canvas id="cpuChart"></canvas>
+            <canvas id="memoryChart"></canvas>
+        </div>
+<div class="aws-section">
+
+    <h2>AWS Infrastructure</h2>
+
+    <div class="aws-cards">
+
+        <div class="aws-card">
+            <h3>EC2</h3>
+            <p>3 Running</p>
+        </div>
+
+        <div class="aws-card">
+            <h3>RDS</h3>
+            <p>Available</p>
+        </div>
+
+        <div class="aws-card">
+            <h3>ALB</h3>
+            <p>Healthy</p>
+        </div>
+
+        <div class="aws-card">
+            <h3>CloudWatch</h3>
+            <p>Monitoring</p>
+        </div>
+
+    </div>
+
+</div>
+        <div class="table-section">
+
+            <h2>Server Status</h2>
+
+            <table>
+
+    <thead>
+        <tr>
+            <th>Hostname</th>
+            <th>CPU</th>
+            <th>RAM</th>
+            <th>Disk</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody id="serverTableBody">
+
+    </tbody>
+
+</table>
+
+        </div>
+
+    </div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
