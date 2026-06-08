@@ -15,22 +15,21 @@
         <h2>☁ CloudOps</h2>
 
         <ul>
-            <li>Dashboard</li>
-            <li>Servers</li>
-            <li>AWS Resources</li>
-            <li>Monitoring</li>
-            <li>Alerts</li>
+            <li onclick="showSection('dashboard')">Dashboard</li>
+            <li onclick="showSection('servers')">Servers</li>
+            <li onclick="showSection('aws')">AWS Resources</li>
+            <li onclick="showSection('monitoring')">Monitoring</li>
+            <li onclick="showSection('alerts')">Alerts</li>
         </ul>
     </div>
 
-    <div class="main-content">
+<div class="main-content">
 
-        <div class="header">
-            <h1>Infrastructure Dashboard</h1>
-        </div>
+    <!-- DASHBOARD SECTION -->
+    <div id="dashboardSection">
+        <h2>Dashboard</h2>
 
         <div class="cards">
-
             <div class="card">
                 <h3>Total Servers</h3>
                 <h2 id="totalServers">0</h2>
@@ -46,12 +45,56 @@
                 <h2 id="awsInstances">0</h2>
             </div>
 
-            <div class="card alert-card">
+            <div class="card">
                 <h3>Alerts</h3>
                 <h2 id="alerts">0</h2>
             </div>
-
         </div>
+
+        <div class="chart-container">
+            <canvas id="cpuChart"></canvas>
+            <canvas id="memoryChart"></canvas>
+        </div>
+    </div>
+
+    <!-- SERVERS SECTION -->
+    <div id="serversSection" style="display:none;">
+        <h2>Servers</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Hostname</th>
+                    <th>CPU</th>
+                    <th>RAM</th>
+                    <th>Disk</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="serverTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- AWS SECTION -->
+    <div id="awsSection" style="display:none;">
+        <h2>AWS Resources</h2>
+        <p>EC2, RDS, VPC details will come here</p>
+    </div>
+
+    <!-- MONITORING SECTION -->
+    <div id="monitoringSection" style="display:none;">
+        <h2>Monitoring</h2>
+        <p>CloudWatch graphs will come here</p>
+    </div>
+
+    <!-- ALERTS SECTION -->
+    <div id="alertsSection" style="display:none;">
+        <h2>Alerts</h2>
+        <p>No critical alerts</p>
+    </div>
+
+</div>
 <div class="architecture">
 
     <h2>3-Tier Architecture</h2>

@@ -65,3 +65,14 @@ new Chart(memctx,{
         }]
     }
 });
+function showSection(section) {
+
+    document.getElementById("dashboardSection").style.display = "none";
+    document.getElementById("serversSection").style.display = "none";
+    document.getElementById("awsSection").style.display = "none";
+    document.getElementById("monitoringSection").style.display = "none";
+    document.getElementById("alertsSection").style.display = "none";
+
+    document.getElementById(section + "Section").style.display = "block";
+}
+showSection("dashboard");
