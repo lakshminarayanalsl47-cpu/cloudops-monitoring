@@ -1,13 +1,16 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
+# Home Route
 @app.route("/")
 def home():
     return "CloudOps Dashboard Backend Running"
 
+
+# Dashboard API
 @app.route("/dashboard")
 def dashboard():
 
@@ -44,5 +47,36 @@ def dashboard():
 
     return jsonify(data)
 
+
+# Login API
+@app.route("/login", methods=["POST"])
+def login():
+
+    data = request.get_json()
+
+    username = data.get("username")
+    password = data.get("password")
+
+    if username == "admin" and password == "cloudops123":
+        return jsonify({
+            "success": True,
+            "message": "Login Successful"
+        })
+
+    return jsonify({
+        "success": False,
+        "message": "Invalid Credentials"
+    })
+@app.route("/aws")
+def aws():
+
+    return jsonify({
+        "ec2": "3 Running",
+        "rds": "Available",
+        "alb": "Healthy",
+        "cloudwatch": "Monitoring"
+    })
+
+# Run Flask App
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

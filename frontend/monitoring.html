@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudOps Dashboard</title>
+    <title>Monitoring</title>
 
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         if(localStorage.getItem("loggedIn") !== "true"){
             window.location.href="login.html";
@@ -33,47 +34,33 @@
 <div class="main-content">
 
     <div class="topbar">
-
-        <h2>CloudOps Monitoring Dashboard</h2>
+        <h2>System Monitoring</h2>
 
         <button class="logout-btn" onclick="logout()">
             Logout
         </button>
-
-    </div>
-
-    <div class="welcome-banner">
-
-        <h2>Welcome Admin 👋</h2>
-
-        <p>
-            Monitor your AWS infrastructure,
-            server health, and cloud resources
-            from a single dashboard.
-        </p>
-
     </div>
 
     <div class="cards">
 
         <div class="card">
-            <h3>Total Servers</h3>
-            <h2 id="totalServers">0</h2>
+            <h3>CPU Usage</h3>
+            <h2>25%</h2>
         </div>
 
         <div class="card">
-            <h3>Running Servers</h3>
-            <h2 id="runningServers">0</h2>
+            <h3>Memory Usage</h3>
+            <h2>45%</h2>
         </div>
 
         <div class="card">
-            <h3>AWS Resources</h3>
-            <h2 id="awsInstances">0</h2>
+            <h3>Disk Usage</h3>
+            <h2>60%</h2>
         </div>
 
         <div class="card">
-            <h3>Alerts</h3>
-            <h2 id="alerts">0</h2>
+            <h3>Network Traffic</h3>
+            <h2>120 MB/s</h2>
         </div>
 
     </div>
@@ -81,28 +68,14 @@
     <div class="chart-container">
 
         <div class="chart-card">
-            <h3>CPU Usage</h3>
+            <h3>CPU Performance</h3>
             <canvas id="cpuChart"></canvas>
         </div>
 
         <div class="chart-card">
-            <h3>Memory Usage</h3>
+            <h3>Memory Performance</h3>
             <canvas id="memoryChart"></canvas>
         </div>
-
-    </div>
-
-    <div class="activity-section">
-
-        <h2>Recent Activity</h2>
-
-        <ul>
-            <li>✅ web01 CPU metrics updated</li>
-            <li>✅ Database backup completed</li>
-            <li>✅ EC2 instance launched successfully</li>
-            <li>✅ CloudWatch alert resolved</li>
-            <li>✅ Daily monitoring scan completed</li>
-        </ul>
 
     </div>
 

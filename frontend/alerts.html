@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts | CloudOps Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        if(localStorage.getItem("loggedIn") !== "true"){
+            window.location.href="login.html";
+        }
+    </script>
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2>☁ CloudOps</h2>
+
+    <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="servers.html">Servers</a></li>
+        <li><a href="aws.html">AWS Resources</a></li>
+        <li><a href="monitoring.html">Monitoring</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <div class="topbar">
+
+        <h2>System Alerts</h2>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+    <!-- Alert Summary Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Critical Alerts</h3>
+            <h2>2</h2>
+        </div>
+
+        <div class="card">
+            <h3>Warnings</h3>
+            <h2>3</h2>
+        </div>
+
+        <div class="card">
+            <h3>Resolved</h3>
+            <h2>8</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Alerts</h3>
+            <h2>13</h2>
+        </div>
+
+    </div>
+
+    <!-- Critical Alerts -->
+
+    <div class="alert-section">
+
+        <h2>🔴 Critical Alerts</h2>
+
+        <div class="alert-card critical">
+            High CPU Usage detected on db01 server (95%)
+        </div>
+
+        <div class="alert-card critical">
+            RDS Storage Utilization exceeded threshold
+        </div>
+
+    </div>
+
+    <!-- Warning Alerts -->
+
+    <div class="alert-section">
+
+        <h2>🟠 Warning Alerts</h2>
+
+        <div class="alert-card warning">
+            Disk usage reached 85% on web01
+        </div>
+
+        <div class="alert-card warning">
+            High memory usage on app01
+        </div>
+
+        <div class="alert-card warning">
+            Increased network latency detected
+        </div>
+
+    </div>
+
+    <!-- Resolved Alerts -->
+
+    <div class="alert-section">
+
+        <h2>🟢 Resolved Alerts</h2>
+
+        <div class="alert-card resolved">
+            CloudWatch alarm resolved successfully
+        </div>
+
+        <div class="alert-card resolved">
+            Backup completed successfully
+        </div>
+
+        <div class="alert-card resolved">
+            EC2 instance recovered and healthy
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
